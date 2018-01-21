@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Product;
 use Illuminate\Http\Request;
 use Redirect;
@@ -16,11 +17,12 @@ class ProductsController extends Controller
    }
 
    public function getProduct($id){
-       $product = Product::where(['id' => $id])->first();
+       $product = Product::with('brand')->where(['id' => $id])->first();
        if (!$product) {
            abort(404);
        }
-       return view('product', ['product' => $product]);
+       $brands = Brand::all();
+       return view('product', ['product' => $product,'brands'=>$brands]);
    }
 
 
@@ -43,7 +45,8 @@ class ProductsController extends Controller
            'quantity' => 'required',
            'weight' => 'required',
            'description' => 'required',
-           'expiry_date' => 'required'
+           'expiry_date' => 'required',
+           'brand_id'=>'required'
        ];
        $validator = Validator::make($request->all(), $rules);
 
@@ -59,6 +62,7 @@ class ProductsController extends Controller
        $product->weight = $request->input('weight');
        $product->description = $request->input('description');
        $product->expiry_date = $date;
+       $product->brand_id = $request->input('brand_id');
        $product->save();
        return redirect()->route('product',$product)->with('success', 'Product has been updated Successfully');
    }

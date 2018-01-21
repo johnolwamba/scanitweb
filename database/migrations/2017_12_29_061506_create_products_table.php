@@ -22,6 +22,8 @@ class CreateProductsTable extends Migration
             $table->string('quantity');
             $table->date('expiry_date');
             $table->string('weight');
+            $table->integer('brand_id')->unsigned();
+            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

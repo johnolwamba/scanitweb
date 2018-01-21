@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use Illuminate\Http\Request;
 use App\Staff;
 use Illuminate\Support\Facades\Auth;
@@ -71,8 +72,14 @@ class MobileAPI extends Controller
 
     //products
     public function getProducts(){
-        $products = Product::all();
+        $products = Product::with('brand')->get();
         return Response::json(array('status' => 'success', 'products' => $products));
+    }
+
+    //brands
+    public function getBrands(){
+        $brands = Brand::all();
+        return Response::json(array('status' => 'success', 'brands' => $brands));
     }
 
 

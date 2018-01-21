@@ -21,6 +21,7 @@ class ProductsTableSeeder extends Seeder
         $product->quantity = '1';
         $product->expiry_date = '2017-10-10';
         $product->weight = '1';
+        $product->brand_id = 1;
         $product->save();
 
         $product = new Product();
@@ -31,6 +32,7 @@ class ProductsTableSeeder extends Seeder
         $product->quantity = '1';
         $product->expiry_date = '2017-10-10';
         $product->weight = '1';
+        $product->brand_id = 1;
         $product->save();
 
         $product = new Product();
@@ -41,6 +43,7 @@ class ProductsTableSeeder extends Seeder
         $product->quantity = '1';
         $product->expiry_date = '2017-10-10';
         $product->weight = '1';
+        $product->brand_id = 1;
         $product->save();
 
         $product = new Product();
@@ -51,6 +54,7 @@ class ProductsTableSeeder extends Seeder
         $product->quantity = '1';
         $product->expiry_date = '2017-10-10';
         $product->weight = '1';
+        $product->brand_id = 1;
         $product->save();
 
         $product = new Product();
@@ -61,6 +65,7 @@ class ProductsTableSeeder extends Seeder
         $product->quantity = '1';
         $product->expiry_date = '2017-10-10';
         $product->weight = '1';
+        $product->brand_id = 1;
         $product->save();
 
     }

@@ -84,6 +84,23 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-12">
+                                                <label>Brand</label>
+                                                <select name="brand_id" class="form-control">
+                                                    @foreach($brands as $brand)
+                                                        <option @php if($brand->id == $product->brand_id){
+                                                         echo "selected='selected'";
+                                                         }
+                                                         @endphp
+                                                         value="{{ $brand->id }}">{{ $brand->name }}</option>
+
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
                                                 <label>Bar Code</label>
                                                 <br>
                                                 <img width="400px" height="150px" src="data:image/png;base64,{{DNS1D::getBarcodePNG($product->bar_code, 'C39+',3,33,array(1,1,1), true)}}" alt="barcode" />
