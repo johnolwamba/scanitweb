@@ -182,7 +182,8 @@ return [
          */
         Spatie\Permission\PermissionServiceProvider::class,
         Milon\Barcode\BarcodeServiceProvider::class,
-        \Safaricom\Mpesa\MpesaServiceProvider::class
+        \Safaricom\Mpesa\MpesaServiceProvider::class,
+        'Spatie\Activitylog\ActivitylogServiceProvider',
 
     ],
 

@@ -11,6 +11,7 @@
         "laravel/tinker": "~1.0",
         "milon/barcode": "^5.3",
         "safaricom/mpesa": "^1.0",
+        "spatie/activitylog": "^2.4",
         "spatie/laravel-permission": "^2.7"
     },
     "require-dev": {
