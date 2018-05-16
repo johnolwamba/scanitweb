@@ -69,7 +69,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label>Description</label>
-                                               <textarea class="form-control" name="description">{{$product->description}}</textarea>
+                                                <textarea class="form-control" name="description">{{$product->description}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -90,8 +90,8 @@
                                                         <option @php if($brand->id == $product->brand_id){
                                                          echo "selected='selected'";
                                                          }
-                                                         @endphp
-                                                         value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                                                @endphp
+                                                                value="{{ $brand->id }}">{{ $brand->name }}</option>
 
                                                     @endforeach
                                                 </select>
@@ -103,7 +103,7 @@
                                             <div class="col-md-12">
                                                 <label>Bar Code</label>
                                                 <br>
-                                                <img width="400px" height="150px" src="data:image/png;base64,{{DNS1D::getBarcodePNG($product->bar_code, 'C39+',3,33,array(1,1,1), true)}}" alt="barcode" />
+                                                <img width="400px" height="150px" src="data:image/png;base64,{{DNS1D::getBarcodePNG($product->bar_code, 'C39')}}" alt="barcode" />
                                             </div>
                                         </div>
                                     </div>

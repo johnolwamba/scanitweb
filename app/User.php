@@ -33,12 +33,12 @@ class User extends Authenticatable
 
     public function staff()
     {
-        return $this->hasMany('App\Staff');
+        return $this->hasOne('App\Staff');
     }
 
     public function customer()
     {
-        return $this->hasMany('App\Customer');
+        return $this->hasOne('App\Customer');
     }
 
 

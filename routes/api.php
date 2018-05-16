@@ -17,19 +17,30 @@ Route::post('/login', [
     'uses'=>'MobileAPI@login'
 ]);
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/register', [
+    'uses'=>'MobileAPI@register'
+]);
+
+Route::group(['middleware' => 'auth:api'], function () {
 
     Route::post('/logout', [
         'uses'=>'MobileAPI@logout'
     ]);
 
     Route::get('/me',[
-       'uses'=>'MobileAPI@getAuthenticatedUser'
+        'uses'=>'MobileAPI@getAuthenticatedUser'
+    ]);
+
+    Route::get('/promotions',[
+        'uses'=>'MobileAPI@getPromotions'
     ]);
 
     Route::get('/products',[
-       'uses'=>'MobileAPI@getProducts'
+        'uses'=>'MobileAPI@getProducts'
+    ]);
+
+    Route::get('/checkproduct/{id}',[
+        'uses'=>'MobileAPI@checkProduct'
     ]);
 
     Route::get('/product/{id}', [
@@ -37,7 +48,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     ]);
 
     Route::post('/scanproduct',[
-       'uses'=>'MobileAPI@scanProduct'
+        'uses'=>'MobileAPI@scanProduct'
     ]);
 
 
@@ -62,11 +73,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     ]);
 
     Route::post('/checkout',[
-       'uses'=>'MobileAPI@checkout'
+        'uses'=>'MobileAPI@checkout'
     ]);
 
     Route::post('process-payment',[
-       'uses'=>'MobileAPI@processPayment'
+        'uses'=>'MobileAPI@processPayment'
     ]);
 
 });

@@ -9,8 +9,7 @@ class CustomersController extends Controller
 {
 
     public function getCustomers(){
-        $customers = User::with('customer')->role('Customer')->get();
-       // dd($customers);
+        $customers = User::whereHas('customer')->with('customer')->get();
         return view('customers', ['customers' => $customers]);
     }
 
